@@ -5,3 +5,4 @@ language: en_US:en
 packages:
   - vim
   - git
+  - zsh
