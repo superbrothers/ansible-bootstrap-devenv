@@ -1,0 +1,7 @@
+---
+locale: en_US.UTF-8
+timezone: Asia/Tokyo
+language: en_US:en
+packages:
+  - vim
+  - git

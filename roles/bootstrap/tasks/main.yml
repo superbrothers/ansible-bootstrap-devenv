@@ -1,0 +1,4 @@
+---
+- include: apt.yml
+- include: locale.yml
+- include: packages.yml

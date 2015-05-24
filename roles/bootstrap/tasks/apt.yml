@@ -1,0 +1,9 @@
+---
+- name: Update apt package cache
+  action: apt update_cache=yes
+
+- name: Install aptitude package
+  action: apt name=aptitude state=installed
+
+- name: Upgrade apt packages to the latest
+  action: apt upgrade=safe
