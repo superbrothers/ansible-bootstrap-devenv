@@ -1,0 +1,7 @@
+---
+- name: Install ibus-mozc
+  action: apt name=ibus-mozc state=installed
+
+- name: Set ~/.config/xfce4/xinitrc
+  copy: src=gui/xinitrc dest={{ ansible_home }}/.config/xfce4/xinitrc
+  sudo: no

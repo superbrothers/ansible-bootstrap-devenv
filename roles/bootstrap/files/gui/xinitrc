@@ -1,0 +1,13 @@
+#!/bin/sh
+
+## start ibus-daemon
+/usr/bin/ibus-daemon -drx
+
+## swap search key to control
+if type croutonversion >/dev/null; then
+    xmodmap -e 'remove mod4 = Super_L'
+    xmodmap -e 'keycode 133 = Control_L'
+    xmodmap -e 'add control = Control_L'
+fi
+
+. "${XDG_CONFIG_DIRS}/xfce4/xinitrc"

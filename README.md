@@ -9,7 +9,7 @@ This repository contains ansible playbooks for bootstrapping development environ
 ## Run playbooks
 
 ```
-$ ansible-playbook -i hosts bootstrap.yml
+$ ansible-playbook -K -i hosts bootstrap.yml
 ```
 
 ## License

@@ -1,6 +1,0 @@
----
-- name: Install ibus-mozc
-  action: apt name=ibus-mozc state=installed
-
-- name: Set /etc/xprofile
-  copy: src=mozc/xprofile dest=/etc/xprofile
