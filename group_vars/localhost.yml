@@ -2,7 +2,10 @@
 locale: en_US.UTF-8
 timezone: Asia/Tokyo
 language: en_US:en
-packages:
-  - vim
-  - git
-  - zsh
+linuxbrew_packages:
+  - name: ncurses
+  - name: readline
+  - name: git
+  - name: zsh
+  - name: vim
+    install_options: with-lua,with-luajit

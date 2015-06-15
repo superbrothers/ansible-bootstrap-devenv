@@ -1,0 +1,38 @@
+---
+- name: Install dependencies of Linuxbrew
+  action: apt pkg={{ item }} state=installed
+  with_items:
+    - build-essential
+    - curl
+    - git
+    - m4
+    - ruby
+    - texinfo
+    - libbz2-dev
+    - libcurl4-openssl-dev
+    - libexpat-dev
+    - libncurses-dev
+    - zlib1g-dev
+
+- name: Install Linuxbrew
+  git: repo=https://github.com/Homebrew/linuxbrew.git
+       dest={{ ansible_home }}/.linuxbrew
+  sudo: no
+
+- name: Set /etc/profile.d/linuxbrew.sh
+  copy: src=linuxbrew/linuxbrew.sh dest=/etc/profile.d/linuxbrew.sh
+
+- name: Tap homebrew/dupes
+  shell: brew tap homebrew/dupes
+  environment:
+    PATH: "{{ ansible_home }}/.linuxbrew/bin:{{ ansible_env.PATH }}"
+
+- name: Install brew packages
+  homebrew: name={{ item.name }}
+            install_options={{ item.install_options|default(omit) }}
+            state=present
+  with_items: "{{ linuxbrew_packages }}"
+  environment:
+    PATH: "{{ ansible_home }}/.linuxbrew/bin:{{ ansible_env.PATH }}"
+    LD_LIBRARY_PATH: "{{ ansible_home}}/.linuxbrew/lib:{{ ansible_env.LD_LIBRARY_PATH }}"
+  sudo: no

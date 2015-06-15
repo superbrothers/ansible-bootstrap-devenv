@@ -1,5 +1,5 @@
 ---
 - include: apt.yml
 - include: locale.yml
-- include: packages.yml
 - include: gui.yml
+- include: linuxbrew.yml
