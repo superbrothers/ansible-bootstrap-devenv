@@ -9,3 +9,6 @@ linuxbrew_packages:
   - name: zsh
   - name: vim
     install_options: with-lua,with-luajit
+  - name: z
+  - name: rbenv
+  - name: peco
